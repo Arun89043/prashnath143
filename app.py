@@ -11,3 +11,7 @@ inputs = [st.slider(label, min_value=val[0], max_value=val[1], value=val[2]) for
 if st.button('Predict'):
     result = model.predict([inputs])[0]
     st.success(f"Prediction: {iris.target_names[result]}")
+
+
+    #6th program
+    
