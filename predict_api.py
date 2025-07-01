@@ -5,13 +5,12 @@ from sklearn.datasets import load_iris
 
 app = Flask(__name__)
 
-# Train model (in production, you would load a saved model)
 X, y = load_iris(return_X_y=True)
 model = LogisticRegression(max_iter=200).fit(X, y)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json['features']
+    data = request.json['features'] 
     prediction = model.predict([data])
     return jsonify({'prediction': int(prediction[0])})
 
